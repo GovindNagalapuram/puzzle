@@ -5,7 +5,7 @@ class Main extends Component{
 
     state = {
         board: null,
-        score: 0,
+        // score: 0,
         gameOver: false,
         message: null
     };
@@ -22,7 +22,7 @@ class Main extends Component{
         board = (this.placeRandom(board));
         this.setState({
                 board, 
-                score: 0, 
+                // score: 0, 
                 gameOver: false, 
                 message: null
             });
@@ -81,7 +81,7 @@ class Main extends Component{
                     } else {
                         this.setState({
                                 board: upWithRandom, 
-                                score: this.state.score += movedUp.score
+                                // score: this.state.score += movedUp.score
                             });  
                     }
                 }
@@ -99,7 +99,7 @@ class Main extends Component{
                     } else {
                         this.setState({
                                 board: rightWithRandom, 
-                                score: this.state.score += movedRight.score
+                                // score: this.state.score += movedRight.score
                             });  
                     }
                 }
@@ -117,7 +117,7 @@ class Main extends Component{
                     } else {
                         this.setState({
                                 board: downWithRandom, 
-                                score: this.state.score += movedDown.score
+                                // score: this.state.score += movedDown.score
                             });
                     }
                 }
@@ -135,7 +135,7 @@ class Main extends Component{
                     } else {
                         this.setState({
                                 board: leftWithRandom, 
-                                score: this.state.score += movedLeft.score
+                                // score: this.state.score += movedLeft.score
                             });
                     }
                 }
@@ -151,7 +151,7 @@ class Main extends Component{
     moveUp = (inputBoard) => {
         let rotatedRight = this.rotateRight(inputBoard);
         let board = [];
-        let score = 0;
+        // let score = 0;
 
         // Shift all numbers to the right
         for (let r = 0; r < rotatedRight.length; r++) {
@@ -169,7 +169,7 @@ class Main extends Component{
             if (board[r][c] > 0 && board[r][c] === board[r][c - 1]) {
                 board[r][c] = board[r][c] * 2;
                 board[r][c - 1] = 0;
-                score += board[r][c];
+                // score += board[r][c];
             } else if (board[r][c] === 0 && board[r][c - 1] > 0) {
                 board[r][c] = board[r][c - 1];
                 board[r][c - 1] = 0;
@@ -180,14 +180,15 @@ class Main extends Component{
         // Rotate board back upright
         board = this.rotateLeft(board);
 
-        return {board, score};
+        // return {board, score};
+        return {board};
     }
      
     // on key down the numbers will move using movedown function
     moveDown = (inputBoard) => {
         let rotatedRight = this.rotateRight(inputBoard);
         let board = [];
-        let score = 0;
+        // let score = 0;
 
         // Shift all numbers to the left
         for (let r = 0; r < rotatedRight.length; r++) {
@@ -205,7 +206,7 @@ class Main extends Component{
             if (board[r][c] > 0 && board[r][c] === board[r][c + 1]) {
                 board[r][c] = board[r][c] * 2;
                 board[r][c + 1] = 0;
-                score += board[r][c];
+                // score += board[r][c];
             } else if (board[r][c] === 0 && board[r][c + 1] > 0) {
                 board[r][c] = board[r][c + 1];
                 board[r][c + 1] = 0;
@@ -216,13 +217,14 @@ class Main extends Component{
         // Rotate board back upright
         board = this.rotateLeft(board);
 
-        return {board, score};
+        // return {board, score};
+        return {board};
     }
 
     // on key right the numbers will move using moveright function
     moveRight =(inputBoard) => {
         let board = [];
-        let score = 0;
+        // let score = 0;
 
         // Shift all numbers to the right
         for (let r = 0; r < inputBoard.length; r++) {
@@ -240,7 +242,7 @@ class Main extends Component{
             if (board[r][c] > 0 && board[r][c] === board[r][c - 1]) {
                 board[r][c] = board[r][c] * 2;
                 board[r][c - 1] = 0;
-                score += board[r][c];
+                // score += board[r][c];
             } else if (board[r][c] === 0 && board[r][c - 1] > 0) {
                 board[r][c] = board[r][c - 1];
                 board[r][c - 1] = 0;
@@ -248,13 +250,14 @@ class Main extends Component{
             }
         }
 
-        return {board, score};
+        // return {board, score};
+        return {board};
     }
        
     // on key left the numbers will move using moveleft function
     moveLeft = (inputBoard) => {
         let board = [];
-        let score = 0;
+        // let score = 0;
     
         // Shift all numbers to the left
         for (let r = 0; r < inputBoard.length; r++) {
@@ -272,7 +275,7 @@ class Main extends Component{
                 if (board[r][c] > 0 && board[r][c] === board[r][c + 1]) {
                 board[r][c] = board[r][c] * 2;
                 board[r][c + 1] = 0;
-                score += board[r][c];
+                // score += board[r][c];
                 } else if (board[r][c] === 0 && board[r][c + 1] > 0) {
                 board[r][c] = board[r][c + 1];
                 board[r][c + 1] = 0;
@@ -280,7 +283,8 @@ class Main extends Component{
             }
         }
         
-        return {board, score};
+        // return {board, score};
+        return {board};
     }
           
     rotateRight =(matrix) =>{
@@ -354,7 +358,7 @@ class Main extends Component{
         return (
         <div className="main">  
             
-            <div className="score">Score: {this.state.score}</div>
+            {/* <div className="score">Score: {this.state.score}</div> */}
 
             <div className="game_board">
                 <div className="game_container">
